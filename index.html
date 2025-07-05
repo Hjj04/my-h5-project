@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>源味鲜厨 - 预制菜安心之选</title>
+
+    <!-- 引入Tailwind CSS，用于快速构建现代化界面 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 引入Swiper.js，用于实现滑动卡片效果 -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- 引入Animate.css，用于添加动画效果 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- 引入自定义字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* 自定义样式 */
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* 定义滚动条样式，使其在某些浏览器中不显示，增强沉浸感 */
+        html {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        html::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, and Opera */
+        }
+
+        /* 定义全屏切片样式 */
+        .section {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            scroll-snap-align: start;
+            position: relative;
+            padding: 1.5rem;
+            /* 统一内边距 */
+        }
+
+        .scroll-container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        /* Swiper自定义样式 */
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #10B981 !important;
+        }
+
+        /* 定义呼吸效果动画 */
+        @keyframes breathe {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 25px rgba(16, 185, 129, 0.7);
+            }
+        }
+
+        .breathing-button {
+            animation: breathe 2.5s ease-in-out infinite;
+        }
+
+        /* 时间轴样式 */
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+            padding-left: 2.5rem;
+        }
+
+        .timeline-item:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: 0.7rem;
+            top: 0.7rem;
+            width: 2px;
+            height: 100%;
+            background-color: #cbd5e1;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 0.3rem;
+            height: 1.5rem;
+            width: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 页面滚动容器 -->
+    <div class="scroll-container">
+
+        <!-- 第1页：封面页 -->
+        <section id="cover" class="section bg-cover bg-center"
+            style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=2070&auto=format&fit=crop');">
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div class="relative z-10 text-center text-white p-4 animate__animated animate__fadeIn">
+                <h2 class="text-2xl md:text-4xl font-semibold my-8">源味鲜厨 (新美香 Zero+)</h2>
+                <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">告别配料表焦虑<br>拥抱真正的“零”添加</h1>
+                <p class="text-lg md:text-xl mt-6">0 添加 · 冷链锁鲜 · 2 分钟健康开饭</p>
+            </div>
+            <div class="absolute bottom-10 text-white animate__animated animate__fadeInUp animate__delay-1s">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 animate-bounce" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- 第2页：痛点页 -->
+        <section id="pain-points" class="section bg-white p-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate__animated">您的担心，我们都懂</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl">
+                <div class="text-center p-6 bg-gray-100 rounded-xl shadow-lg animate__animated animate__fadeInUp"
+                    data-wow-delay="0.2s">
+                    <div class="text-5xl font-bold text-red-500 mb-3">87.7%</div>
+                    <p class="text-lg font-medium">的消费者担忧</p>
+                    <p class="text-xl font-semibold text-red-600">添加剂过多</p>
+                </div>
+                <div class="text-center p-6 bg-gray-100 rounded-xl shadow-lg animate__animated animate__fadeInUp"
+                    data-wow-delay="0.4s">
+                    <div class="text-5xl font-bold text-yellow-500 mb-3">78.6%</div>
+                    <p class="text-lg font-medium">的人担心食材</p>
+                    <p class="text-xl font-semibold text-yellow-600">不够新鲜</p>
+                </div>
+                <div class="text-center p-6 bg-gray-100 rounded-xl shadow-lg animate__animated animate__fadeInUp"
+                    data-wow-delay="0.6s">
+                    <div class="text-5xl font-bold text-blue-500 mb-3">36.7%</div>
+                    <p class="text-lg font-medium">的人抱怨菜品</p>
+                    <p class="text-xl font-semibold text-blue-600">千篇一律</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第3页：解决方案页 (已重构) -->
+        <section id="solution" class="section bg-emerald-50 p-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-emerald-800 animate__animated">我们的8大安心承诺
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-6xl">
+                <!-- 承诺模块 -->
+                <div class="bg-white p-4 rounded-xl shadow-lg text-center animate__animated animate__zoomIn"
+                    data-wow-delay="0.1s">
+                    <h3 class="font-semibold text-lg mb-1 text-emerald-700">洁净配方</h3>
+                    <p class="text-sm text-gray-500">配料表≤8行, 0防腐剂</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-lg text-center animate__animated animate__zoomIn"
+                    data-wow-delay="0.2s">
+                    <h3 class="font-semibold text-lg mb-1 text-emerald-700">地域IP口味</h3>
+                    <p class="text-sm text-gray-500">告别单一, 还原地道风味</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-lg text-center animate__animated animate__zoomIn"
+                    data-wow-delay="0.3s">
+                    <h3 class="font-semibold text-lg mb-1 text-emerald-700">透明包装</h3>
+                    <p class="text-sm text-gray-500">Skin-Vac膜, 美味看得见</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-lg text-center animate__animated animate__zoomIn"
+                    data-wow-delay="0.4s">
+                    <h3 class="font-semibold text-lg mb-1 text-emerald-700">全程可溯源</h3>
+                    <p class="text-sm text-gray-500">区块链上链, 安心可验证</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-lg text-center animate__animated animate__zoomIn"
+                    data-wow-delay="0.5s">
+                    <h3 class="font-semibold text-lg mb-1 text-emerald-700">便捷场景</h3>
+                    <p class="text-sm text-gray-500">2分钟即享, 适配多种场景</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-lg text-center animate__animated animate__zoomIn"
+                    data-wow-delay="0.6s">
+                    <h3 class="font-semibold text-lg mb-1 text-emerald-700">合理定价</h3>
+                    <p class="text-sm text-gray-500">可负担的健康, 支撑35%毛利</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-lg text-center animate__animated animate__zoomIn"
+                    data-wow-delay="0.7s">
+                    <h3 class="font-semibold text-lg mb-1 text-emerald-700">会员DTC</h3>
+                    <p class="text-sm text-gray-500">Zero+俱乐部, 提升用户价值</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-lg text-center animate__animated animate__zoomIn"
+                    data-wow-delay="0.8s">
+                    <h3 class="font-semibold text-lg mb-1 text-emerald-700">ESG亮点</h3>
+                    <p class="text-sm text-gray-500">循环包装, 回应可持续消费</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第4页：产品展示页 -->
+        <section id="products" class="section bg-white p-6 w-full">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate__animated">首发地域IP菜品，每日尝鲜</h2>
+            <div class="swiper-container w-full max-w-sm md:max-w-4xl h-auto animate__animated animate__fadeIn">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bg-white rounded-xl shadow-2xl overflow-hidden w-72 md:w-80">
+                            <img src="川香嫩牛.png" alt="川香嫩牛"
+                                class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">【川香嫩牛】日常款</h3>
+                                <p class="text-gray-600 mb-4">精选牛霖肉，麻辣鲜香，唤醒味蕾。</p>
+                                <div class="text-2xl font-bold text-emerald-600">¥32.0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-white rounded-xl shadow-2xl overflow-hidden w-72 md:w-80">
+                            <img src="意式清酱鸡胸.png" alt="意式青酱鸡胸"
+                                class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">【意式青酱鸡胸】轻卡款</h3>
+                                <p class="text-gray-600 mb-4">罗勒清香，高蛋白低脂肪，健身优选。</p>
+                                <div class="text-2xl font-bold text-emerald-600">¥29.0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-white rounded-xl shadow-2xl overflow-hidden w-72 md:w-80">
+                            <img src="粤式豉油鸡.png" alt="粤式豉油鸡"
+                                class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">【粤式豉油鸡】日常款</h3>
+                                <p class="text-gray-600 mb-4">咸甜适口，皮滑肉嫩，广式经典。</p>
+                                <div class="text-2xl font-bold text-emerald-600">¥28.0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-white rounded-xl shadow-2xl overflow-hidden w-72 md:w-80">
+                            <img src="日式味增鳕鱼.png" alt="日式味噌鳕鱼"
+                                class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">【日式味噌鳕鱼】家庭分享款</h3>
+                                <p class="text-gray-600 mb-4">深海银鳕鱼，酱香浓郁，营养丰富。</p>
+                                <div class="text-2xl font-bold text-emerald-600">¥88.0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination mt-8"></div>
+            </div>
+        </section>
+
+        <!-- 第5页：信任背书页 -->
+        <section id="testimonials" class="section bg-gray-50 p-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate__animated">听听专家怎么说</h2>
+            <div class="flex flex-col md:flex-row gap-8 w-full max-w-4xl">
+                <div class="bg-white p-6 rounded-lg shadow-lg flex-1 animate__animated animate__fadeInLeft">
+                    <div class="flex items-center mb-4">
+                        <img src="561ab88f375be1c0431576ee49ba3f6.jpg" alt="专家头像"
+                            class="w-16 h-16 rounded-full mr-4 border-2 border-emerald-500">
+                        <div>
+                            <p class="font-bold text-lg">杨阳 教授</p>
+                            <p class="text-sm text-gray-500">北京邮电大学 博士生导师</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"该团队基于扎实的数据分析，精准抓住了预制菜市场的核心痛点。其提出的‘零添加’产品概念具有很强的市场前瞻性，我看好其发展。"</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg flex-1 animate__animated animate__fadeInRight">
+                    <div class="flex items-center mb-4">
+                        <img src="561ab88f375be1c0431576ee49ba3f6.jpg" alt="专家头像"
+                            class="w-16 h-16 rounded-full mr-4 border-2 border-emerald-500">
+                        <div>
+                            <p class="font-bold text-lg">张三 学长</p>
+                            <p class="text-sm text-gray-500">某知名食品公司 市场总监</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"这个项目对消费者需求的洞察非常深刻。特别是对安全和健康的关注，完全符合当前消费升级的趋势，商业模式清晰，潜力巨大。"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第6页：落地蓝图页 (全新) -->
+        <section id="roadmap" class="section bg-white p-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate__animated">落地蓝图：我们的五步执行计划</h2>
+            <div class="w-full max-w-2xl">
+                <!-- 阶段1 -->
+                <div class="timeline-item animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                    <div class="timeline-dot bg-emerald-500 text-white">1</div>
+                    <h3 class="font-bold text-xl mb-1">MVP小批试产 (T+1.5月)</h3>
+                    <p class="text-gray-600">推出3款主打口味，分发500份众测产品，快速验证产品力，目标满意度>80%。</p>
+                </div>
+                <!-- 阶段2 -->
+                <div class="timeline-item animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                    <div class="timeline-dot bg-emerald-500 text-white">2</div>
+                    <h3 class="font-bold text-xl mb-1">冷链网络起网 (T+3月)</h3>
+                    <p class="text-gray-600">在华东/华南设微型冷仓，与顺丰/京东冷链合作，保障72小时送达。</p>
+                </div>
+                <!-- 阶段3 -->
+                <div class="timeline-item animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                    <div class="timeline-dot bg-emerald-500 text-white">3</div>
+                    <h3 class="font-bold text-xl mb-1">众筹预售 (T+4月)</h3>
+                    <p class="text-gray-600">于抖音/小红书发起众筹，通过内容种草冷启动，目标筹资200万。</p>
+                </div>
+                <!-- 阶段4 -->
+                <div class="timeline-item animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                    <div class="timeline-dot bg-emerald-500 text-white">4</div>
+                    <h3 class="font-bold text-xl mb-1">全面发售 (T+5月)</h3>
+                    <p class="text-gray-600">SKU扩展至10款以上，进入300家便利店/精超试销，并搭建会员体系。</p>
+                </div>
+                <!-- 阶段5 -->
+                <div class="timeline-item animate__animated animate__fadeInUp" data-wow-delay="0.5s"
+                    style="padding-bottom: 0;">
+                    <div class="timeline-dot bg-emerald-500 text-white">5</div>
+                    <h3 class="font-bold text-xl mb-1">数据迭代升级 (持续)</h3>
+                    <p class="text-gray-600">实时追踪用户数据，优化SKU，并结合季节热点推出限定系列。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第7页：行动号召页 -->
+        <section id="cta" class="section bg-cover bg-center"
+            style="background-image: url('https://images.unsplash.com/photo-1516836371271-63357716447a?q=80&w=1974&auto=format&fit=crop');">
+            <div class="absolute inset-0 bg-slate-800 bg-opacity-60"></div>
+            <div class="relative z-10 text-center text-white p-4">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 animate__animated animate__tada">MVP小批试产，即将开启</h2>
+                <p class="text-lg md:text-xl mb-8 animate__animated animate__fadeInUp">成为我们的首席体验官，您的建议将决定我们的下一款产品！</p>
+                <button id="show-modal-btn"
+                    class="bg-emerald-500 text-white font-bold text-xl py-4 px-10 rounded-full shadow-lg hover:bg-emerald-600 transition-all duration-300 breathing-button">
+                    免费报名，抢先体验
+                </button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- 弹窗/模态框 (用于问卷调查) -->
+    <div id="survey-modal"
+        class="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 hidden animate__animated animate__fadeIn">
+        <div class="bg-white rounded-lg p-8 w-11/12 md:w-1/3 max-w-lg relative animate__animated animate__zoomIn">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 class="text-2xl font-bold mb-6 text-center">首席体验官报名</h3>
+            <form id="survey-form">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="product-interest">1.
+                        您对我们的哪款首发产品最感兴趣？</label>
+                    <select id="product-interest"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <option>【川香嫩牛】日常款</option>
+                        <option>【意式青酱鸡胸】轻卡款</option>
+                        <option>【粤式豉油鸡】日常款</option>
+                        <option>【日式味噌鳕鱼】家庭分享款</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">2. 您是否愿意成为我们的首批体验官，并享受8折优惠？</label>
+                    <div class="flex items-center">
+                        <input type="radio" id="yes" name="experience" value="yes" class="mr-2" checked>
+                        <label for="yes" class="mr-6">愿意</label>
+                        <input type="radio" id="no" name="experience" value="no" class="mr-2">
+                        <label for="no">暂时不了</label>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="contact">3. (选填)
+                        请留下您的联系方式，以便我们后续通知您</label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="contact" type="text" placeholder="微信 / 邮箱">
+                </div>
+                <div class="flex items-center justify-center">
+                    <button id="submit-survey-btn"
+                        class="bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-2 px-6 rounded-full focus:outline-none focus:shadow-outline"
+                        type="button">
+                        提交报名
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        // 初始化Swiper
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            loop: true,
+        });
+
+        // 模态框/弹窗逻辑
+        const modal = document.getElementById('survey-modal');
+        const showModalBtn = document.getElementById('show-modal-btn');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const submitSurveyBtn = document.getElementById('submit-survey-btn');
+
+        showModalBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        submitSurveyBtn.addEventListener('click', () => {
+            // 在真实项目中，这里会提交表单数据
+            alert('报名成功！感谢您的支持，我们将在内测开始时通知您！');
+            modal.classList.add('hidden');
+            // 清空表单
+            document.getElementById('survey-form').reset();
+        });
+
+        // 点击模态框外部区域关闭
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+
+        // 为页面滚动添加动画触发
+        // 使用Intersection Observer API来检测元素是否进入视口
+        const animatedElements = document.querySelectorAll('.animate__animated');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // 当元素进入视口时，添加动画类
+                    const animation = entry.target.dataset.animation || 'animate__fadeInUp';
+                    entry.target.classList.add(animation);
+                } else {
+                    // 可选：当元素离开视口时，移除动画类以便下次进入时再次触发
+                    const animation = entry.target.dataset.animation || 'animate__fadeInUp';
+                    entry.target.classList.remove(animation);
+                }
+            });
+        }, {
+            threshold: 0.2 // 元素可见20%时触发
+        });
+
+        // 遍历所有需要动画的元素并开始观察
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+
+    </script>
+
+</body>
+
+</html>
