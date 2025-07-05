@@ -227,8 +227,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="bg-white rounded-xl shadow-2xl overflow-hidden w-72 md:w-80">
-                            <img src="川香嫩牛.png" alt="川香嫩牛"
-                                class="w-full h-48 object-cover">
+                            <img src="川香嫩牛.png" alt="川香嫩牛" class="w-full h-48 object-cover">
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">【川香嫩牛】日常款</h3>
                                 <p class="text-gray-600 mb-4">精选牛霖肉，麻辣鲜香，唤醒味蕾。</p>
@@ -238,8 +237,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="bg-white rounded-xl shadow-2xl overflow-hidden w-72 md:w-80">
-                            <img src="意式清酱鸡胸.png" alt="意式青酱鸡胸"
-                                class="w-full h-48 object-cover">
+                            <img src="意式清酱鸡胸.png" alt="意式青酱鸡胸" class="w-full h-48 object-cover">
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">【意式青酱鸡胸】轻卡款</h3>
                                 <p class="text-gray-600 mb-4">罗勒清香，高蛋白低脂肪，健身优选。</p>
@@ -249,8 +247,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="bg-white rounded-xl shadow-2xl overflow-hidden w-72 md:w-80">
-                            <img src="粤式豉油鸡.png" alt="粤式豉油鸡"
-                                class="w-full h-48 object-cover">
+                            <img src="粤式豉油鸡.png" alt="粤式豉油鸡" class="w-full h-48 object-cover">
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">【粤式豉油鸡】日常款</h3>
                                 <p class="text-gray-600 mb-4">咸甜适口，皮滑肉嫩，广式经典。</p>
@@ -260,8 +257,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="bg-white rounded-xl shadow-2xl overflow-hidden w-72 md:w-80">
-                            <img src="日式味增鳕鱼.png" alt="日式味噌鳕鱼"
-                                class="w-full h-48 object-cover">
+                            <img src="日式味增鳕鱼.png" alt="日式味噌鳕鱼" class="w-full h-48 object-cover">
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">【日式味噌鳕鱼】家庭分享款</h3>
                                 <p class="text-gray-600 mb-4">深海银鳕鱼，酱香浓郁，营养丰富。</p>
@@ -277,8 +273,8 @@
         <!-- 第5页：信任背书页 -->
         <section id="testimonials" class="section bg-gray-50 p-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate__animated">听听专家怎么说</h2>
-            <div class="flex flex-col md:flex-row gap-8 w-full max-w-4xl">
-                <div class="bg-white p-6 rounded-lg shadow-lg flex-1 animate__animated animate__fadeInLeft">
+            <div class="w-full max-w-2xl">
+                <div class="bg-white p-6 rounded-lg shadow-lg animate__animated animate__fadeIn">
                     <div class="flex items-center mb-4">
                         <img src="561ab88f375be1c0431576ee49ba3f6.jpg" alt="专家头像"
                             class="w-16 h-16 rounded-full mr-4 border-2 border-emerald-500">
@@ -288,17 +284,6 @@
                         </div>
                     </div>
                     <p class="text-gray-600 italic">"该团队基于扎实的数据分析，精准抓住了预制菜市场的核心痛点。其提出的‘零添加’产品概念具有很强的市场前瞻性，我看好其发展。"</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg flex-1 animate__animated animate__fadeInRight">
-                    <div class="flex items-center mb-4">
-                        <img src="561ab88f375be1c0431576ee49ba3f6.jpg" alt="专家头像"
-                            class="w-16 h-16 rounded-full mr-4 border-2 border-emerald-500">
-                        <div>
-                            <p class="font-bold text-lg">张三 学长</p>
-                            <p class="text-sm text-gray-500">某知名食品公司 市场总监</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic">"这个项目对消费者需求的洞察非常深刻。特别是对安全和健康的关注，完全符合当前消费升级的趋势，商业模式清晰，潜力巨大。"</p>
                 </div>
             </div>
         </section>
@@ -469,8 +454,8 @@
                     entry.target.classList.add(animation);
                 } else {
                     // 可选：当元素离开视口时，移除动画类以便下次进入时再次触发
-                    const animation = entry.target.dataset.animation || 'animate__fadeInUp';
-                    entry.target.classList.remove(animation);
+                    // const animation = entry.target.dataset.animation || 'animate__fadeInUp';
+                    // entry.target.classList.remove(animation);
                 }
             });
         }, {
